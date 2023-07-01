@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Prediction Using ML</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+  </head>
+  <body>
+    <body class = "body bg-white dark:bg-[#0F172A]">
+      <div class = "bg-black before:animate-pulse before:bg-gradient-to-b before:from-gray-900 overflow-hidden before:via-[#00FF00] before:to-gray-900 before:absolute ">
+        <div id="myDIV" class="max-w-screen">
+          {% include 'navbar.html' %}
+          <div class = "w-full flex pt-36 flex items-center justify-center absolute">
+            <div class = "w-full sm:w-11/12 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-50 py-4  rounded-lg">
+              <div class = "w-full flex justify-center text-[#0ab2f5] text-xl mb:2 md:mb-5">
+                Heart Disease
+              </div>
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Description:</div>
+              <div class="w-full flex justify-center text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">Heart disease refers to a range of conditions that affect the heart, its blood vessels, and the circulatory system. It is a broad term that encompasses various conditions, including coronary artery disease, heart failure, arrhythmias, and valvular heart disease, among others.
+
+              </div>
+              
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Symptoms:</div>
+              <div class = "w-full flex text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">
+                <ul>
+                  <li>	Chest pain or discomfort: This is one of the most well-known symptoms of heart disease. It may feel like pressure, tightness, squeezing, or aching in the chest. The pain may radiate to the arms, jaw, neck, back, or stomach.</li>
+                  <li>	Shortness of breath: Feeling breathless, especially during physical activity or even at rest, can be a sign of heart disease. It may be accompanied by wheezing or a sense of being unable to catch your breath.</li>
+                  <li>	Fatigue: Persistent fatigue or exhaustion that is not relieved by rest can be a symptom of heart disease. This can occur due to the heart's reduced ability to pump blood effectively. </li>
+                  <li>	Palpitations: Irregular heartbeats, skipped beats, or a rapid heartbeat may be felt as palpitations. It may feel like the heart is racing or fluttering.</li>
+                  <li>	Dizziness or lightheadedness: Feeling lightheaded, dizzy, or fainting can be associated with heart problems. This may occur due to a drop in blood pressure or inadequate blood flow to the brain..</li>
+                  <li>	Swelling: Fluid retention can cause swelling in the legs, ankles, feet, or abdomen. This is known as edema and can occur as a result of heart failure or other heart conditions.</li>
+                  <li>	Slow-healing sores or frequent infections: Wounds take longer to heal, and there is a higher susceptibility to infections.</li>
+                  <li>	Nausea or vomiting: Some individuals with heart disease may experience nausea, indigestion, or vomiting, particularly if the heart's pumping function is compromised.</li>
+                  <li>	Pain in other parts of the body: Sometimes, heart disease can cause pain or discomfort in the arms, shoulders, neck, jaw, or upper back. This is known as referred pain.</li>
+                </ul>
+              </div>
+
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Parameters:</div>
+              <div class = "w-full flex justify-center text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">
+                <ul>
+                  <li>	Age: Age is an important risk factor for heart disease. The risk of developing heart disease increases with age.</li>
+                  <li>	Sex: Gender can influence the risk of heart disease. Men generally have a higher risk than premenopausal women, although the risk for women increases after menopause.</li>
+                  <li>	CP (Chest Pain): This refers to the presence or absence of chest pain or discomfort, which can be indicative of heart disease. CP is often assessed using a scale or categorized into different types, such as typical angina, atypical angina, non-anginal pain, or asymptomatic.</li>
+                  <li>	Trestbps (Resting Blood Pressure): This represents the resting blood pressure measurement, which is an important indicator of cardiovascular health. High blood pressure (hypertension) is a significant risk factor for heart disease.</li>
+                  <li>	Chol (Cholesterol): Cholesterol levels, specifically the level of low-density lipoprotein (LDL) cholesterol (often referred to as "bad" cholesterol), can contribute to the development of heart disease. Elevated cholesterol levels are associated with an increased risk.</li>
+                  <li>	FBS (Fasting Blood Sugar): Fasting blood sugar levels are used to assess the presence of diabetes or impaired glucose tolerance, both of which are linked to an increased risk of heart disease.</li>
+                  <li>	Restecg (Resting Electrocardiographic Results): Resting electrocardiography (ECG) records the electrical activity of the heart at rest. It can provide information about abnormalities, such as arrhythmias or ischemia, that may indicate underlying heart disease.</li>
+                  <li>	Thalach (Maximum Heart Rate Achieved): Thalach refers to the maximum heart rate achieved during exercise stress testing. It is used to assess cardiovascular fitness and can provide insights into heart health.</li>
+                  <li>	Exang (Exercise-Induced Angina): This parameter indicates the presence or absence of angina (chest pain or discomfort) induced by physical exertion or exercise. It can help evaluate the severity of coronary artery disease.</li>
+                  <li>	Oldpeak (ST Depression Induced by Exercise Relative to Rest): Oldpeak measures the ST segment depression on the ECG during exercise stress testing. It is used as an indicator of myocardial ischemia or reduced blood flow to the heart.</li>
+                  <li>	Slope (Slope of the ST Segment): The slope of the ST segment on the ECG during exercise stress testing provides additional information about the presence and severity of coronary artery disease.</li>
+                  <li>	Ca (Number of Major Vessels Colored by Fluoroscopy): This parameter represents the number of major blood vessels (coronary arteries) that are visibly narrowed or blocked based on fluoroscopy, an imaging technique.</li>
+                  <li>	Thal (Thalassemia): Thalassemia is a blood disorder that affects the production of hemoglobin. In the context of heart disease, the parameter "thal" likely refers to thallium stress testing, a nuclear imaging technique used to evaluate blood flow to the heart.</li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div> 
+    </body>
+    <script>
+        const para = document.createElement("div");
+        para.className = 'w-full flex flex-wrap gap-0.5 h-fit items-center justify-center sticky';  
+        let el = '<div class = "  transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(vw-2px)] w-[calc(10vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>'
+        for (var k = 0; k<=1494; k++){
+          el+= '<div class = " transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>';
+        };
+        para.innerHTML = el;
+        document.getElementById("myDIV").appendChild(para); 
+        </script>
+   <!-- Option 1: Bootstrap Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+</body>
+</html>

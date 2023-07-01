@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Disease Prediction System</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  </head>
+  <body>
+    <body class = "body bg-white dark:bg-[#0F172A]">
+      <div class = "bg-black before:animate-pulse before:bg-gradient-to-b before:from-gray-900 overflow-hidden before:via-[#00FF00] before:to-gray-900 before:absolute ">
+        <div id="myDIV" >
+          {% include 'navbar.html' %}
+          <div class = "w-full flex pt-36 flex items-center justify-center absolute">
+            <div class = "w-full sm:w-11/12 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-50 py-4  rounded-lg">
+              <div class = "w-full flex justify-center text-[#0ab2f5] text-xl mb:2 md:mb-5">
+                Breast Cancer Prediction Using ML
+              </div>
+              <!-- Prediction section -->
+              <form method="post" action="/predict_breast_cancer">
+
+                <div class="-mx-3 flex flex-wrap">
+                  <div class="w-full px-3 sm:w-1/2">
+                    <div class="mb-2">
+                      <label for="mean_radius" class="block mb-2 text-xs font-medium text-[#8cd7f5]">Mean Radius:</label>
+                      <input type="number" id="mean_radius" name="mean_radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00" step="any" required>
+                    </div>
+                  </div>
+                  <div class="w-full px-3 sm:w-1/2">
+                    <div class="mb-2">
+                      <label for="mean_texture" class="block mb-2 text-xs font-medium text-[#8cd7f5]">Mean Texture:</label>
+                      <input type="number" id="mean_texture" name="mean_texture" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00" step="any" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="-mx-3 flex flex-wrap">
+                  <div class="w-full px-3 sm:w-1/3">
+                    <div class="mb-2">
+                      <label for="mean_perimeter" class="block mb-2 text-xs font-medium text-[#8cd7f5]">Mean Perimeter:</label>
+                      <input type="number" id="mean_perimeter" name="mean_perimeter" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00" step="any" required>
+                    </div>
+                  </div>
+                  <div class="w-full px-3 sm:w-1/3">
+                    <div class="mb-2">
+                      <label for="mean_area" class="block mb-2 text-xs font-medium text-[#8cd7f5]">Mean Area:</label>
+                      <input type="number" id="mean_area" name="mean_area" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00" step="any" required>
+                    </div>
+                  </div>
+                  <div class="w-full px-3 sm:w-1/3">
+                    <div class="mb-2">
+                      <label for="mean_smoothness" class="block mb-2 text-xs font-medium text-[#8cd7f5]">Mean Smoothness:</label>
+                      <input type="number" id="mean_smoothness" name="mean_smoothness" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00" step="any" required>
+                    </div>
+                  </div>
+                </div>
+
+                <input type="submit" value="Predict" class = "mt-4 md:mt-10 w-full flex justify-center text-sm md:text-xl bg-[#0ab2f5] py-2 rounded-md hover:bg-[#8cd7f5]">
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    
+    <script>
+    const para = document.createElement("div");
+    para.className = 'flex flex-wrap gap-0.5 h-screen items-center justify-center  relative';
+    let el = '<div class = "  transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>'
+    for (var k = 1; k<=1000; k++){
+      el+= '<div class = " transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>';
+    };
+    para.innerHTML = el;
+    document.getElementById("myDIV").appendChild(para);
+    </script>
+
+</body>
+</html>

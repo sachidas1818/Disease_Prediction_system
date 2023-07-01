@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Prediction Using ML</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+  </head>
+  <body>
+    <body class = "body bg-white dark:bg-[#0F172A]">
+      <div class = "bg-black before:animate-pulse before:bg-gradient-to-b before:from-gray-900 overflow-hidden before:via-[#00FF00] before:to-gray-900 before:absolute ">
+        <div id="myDIV" class="max-w-screen">
+          {% include 'navbar.html' %}
+          <div class = "w-full flex pt-36 flex items-center justify-center absolute">
+            <div class = "w-full sm:w-11/12 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-50 py-4  rounded-lg">
+              <div class = "w-full flex justify-center text-[#0ab2f5] text-xl mb:2 md:mb-5">
+                Diabetes
+              </div>
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Description:</div>
+              <div class="w-full flex justify-center text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">Diabetes is a chronic medical condition that affects how your body regulates blood sugar (glucose). There are three main types of diabetes: type 1 diabetes, type 2 diabetes, and gestational diabetes. While the specific symptoms and severity can vary depending on the type of diabetes, there are some common signs and symptoms to look out for.
+
+              </div>
+              
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Symptoms:</div>
+              <div class = "w-full flex text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">
+                <ul>
+                  <li>	Frequent urination: Increased need to urinate frequently, including during the night.</li>
+                  <li>	Excessive thirst: Persistent feeling of being extremely thirsty.</li>
+                  <li>	Unexplained weight loss: Losing weight without trying, despite a regular or increased appetite. </li>
+                  <li>	Increased hunger: Feeling hungry more often, even after eating.</li>
+                  <li>	Fatigue: Persistent tiredness and lack of energy.</li>
+                  <li>	Blurred vision: Vision problems, including difficulty focusing or blurred sight.</li>
+                  <li>	Slow-healing sores or frequent infections: Wounds take longer to heal, and there is a higher susceptibility to infections.</li>
+                  <li>	Tingling or numbness: A sensation of tingling or numbness, particularly in the hands and feet.</li>
+                </ul>
+              </div>
+
+              <div class = "w-full flex font-bold text-justify text-[#8cd7f5] sm:text-lg m-0 sm:mb-4">Parameters:</div>
+              <div class = "w-full flex justify-center text-justify text-[#8cd7f5] sm:text-lg m-px sm:mb-4">
+                <ul>
+                  <li>	Pregnancies: Number of times a person has been pregnant.</li>
+                  <li>	Glucose: Plasma glucose concentration measured 2 hours after consuming a glucose solution as part of an oral glucose tolerance test (OGTT). It indicates how the body processes glucose.</li>
+                  <li>	BloodPressure: Diastolic blood pressure, measured in millimeters of mercury (mm Hg). It represents the pressure in the arteries when the heart is at rest between beats.</li>
+                  <li>	SkinThickness: Triceps skinfold thickness, measured in millimeters. It is a measure of subcutaneous fat and can provide information about body composition.</li>
+                  <li>	Insulin: 2-Hour serum insulin levels, measured in micro international units per milliliter (mu U/ml). It represents the amount of insulin present in the blood 2 hours after consuming glucose.</li>
+                  <li>	BMI: Body mass index, calculated as weight in kilograms divided by the square of height in meters (kg/m^2). It is used to assess the relationship between weight and height and provide an indication of body composition.</li>
+                  <li>	DiabetesPedigreeFunction: A function that quantifies the diabetes history in relatives and their impact on the probability of developing diabetes. It provides a measure of genetic predisposition.</li>
+                  <li>Age: Age of the individual in years.</li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div> 
+    </body>
+    <script>
+        const para = document.createElement("div");
+        para.className = 'w-full flex flex-wrap gap-0.5 h-min items-center justify-center sticky';  
+        let el = '<div class = "  transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(vw-2px)] w-[calc(10vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>'
+        for (var k = 0; k<=1018; k++){
+          el+= '<div class = " transition-colors duration-[1.5s] hover:duration-[0s] border-[#0ab2f5] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#0ab2f5]"></div>';
+        };
+        para.innerHTML = el;
+        document.getElementById("myDIV").appendChild(para); 
+        </script>
+   <!-- Option 1: Bootstrap Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+</body>
+</html>
